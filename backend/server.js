@@ -20,13 +20,30 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    message: 'Server is running',
-    timestamp: new Date().toISOString(),
-    flagrightConfigured: !!(process.env.FLAGRIGHT_API_KEY && process.env.FLAGRIGHT_API_URL)
-  });
+app.get('/health', async (req, res) => {
+  try {
+    // Test database connection
+    await testConnection();
+    
+    res.json({ 
+      status: 'OK', 
+      message: 'Server is running',
+      timestamp: new Date().toISOString(),
+      services: {
+        database: 'connected',
+        flagright: !!(process.env.FLAGRIGHT_API_KEY && process.env.FLAGRIGHT_API_URL) ? 'configured' : 'not configured'
+      },
+      version: '1.0.0',
+      environment: process.env.NODE_ENV || 'development'
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: 'ERROR',
+      message: 'Database connection failed',
+      timestamp: new Date().toISOString(),
+      error: error.message
+    });
+  }
 });
 
 // API Routes

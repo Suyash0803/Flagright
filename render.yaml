@@ -1,0 +1,57 @@
+services:
+  # Neo4j Database (Private Service)
+  - type: pserv
+    name: flagright-neo4j
+    env: docker
+    dockerfilePath: ./neo4j/Dockerfile
+    dockerContext: ./neo4j
+    envVars:
+      - key: NEO4J_AUTH
+        value: neo4j/password123
+      - key: NEO4J_PLUGINS
+        value: '["apoc"]'
+    disk:
+      name: neo4j-data
+      mountPath: /data
+      sizeGB: 10
+
+  # Backend API Service
+  - type: web
+    name: flagright-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: NEO4J_URI
+        fromService:
+          type: pserv
+          name: flagright-neo4j
+          property: connectionString
+      - key: NEO4J_USER
+        value: neo4j
+      - key: NEO4J_PASSWORD
+        value: password123
+    healthCheckPath: /health
+
+  # Frontend Static Site
+  - type: web
+    name: flagright-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: flagright-backend
+          property: host
+
+databases:
+  # Alternative: Use Render's managed databases if needed
+  # - name: flagright-postgres
+  #   databaseName: flagright
+  #   user: flagright_user
