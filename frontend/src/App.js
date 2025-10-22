@@ -493,7 +493,7 @@ function App() {
               <div className="path-inputs">
                 <input
                   type="text"
-                  placeholder="From User ID (e.g., user-1)"
+                  placeholder="From User ID"
                   value={pathUser1}
                   onChange={(e) => setPathUser1(e.target.value)}
                   className="path-input"
@@ -501,7 +501,7 @@ function App() {
                 <span className="path-arrow">→</span>
                 <input
                   type="text"
-                  placeholder="To User ID (e.g., user-50)"
+                  placeholder="To User ID"
                   value={pathUser2}
                   onChange={(e) => setPathUser2(e.target.value)}
                   className="path-input"

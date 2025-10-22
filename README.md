@@ -8,20 +8,29 @@ A comprehensive graph-based fraud detection system built with Neo4j, Node.js, an
 
 ## 🚀 Deployment
 
-### Quick Deploy on Render (15 minutes)
-**⚡ Fast Track**: [DEPLOY_NOW.md](./DEPLOY_NOW.md) - Simple 4-step guide
+### 🌟 Recommended Platforms
 
-**📚 Detailed Guide**: [RENDER_MANUAL_DEPLOY.md](./RENDER_MANUAL_DEPLOY.md) - Step-by-step with explanations
+| Platform | Best For | Cost | Setup Time |
+|----------|----------|------|------------|
+| **Render** | Free tier, testing | Free | 15 min |
+| **Railway** | Production, performance | $5-20/month | 20 min |
+| **DigitalOcean** | Full docker-compose support | $10-50/month | 30 min |
 
-### Other Deployment Options
-- **Docker**: Use the included `docker-compose.yml`
-- **Local**: Follow the development setup below
-- **Cloud**: Deploy on AWS, GCP, or Azure
+### Platform-Specific Guides
+
+- 🆓 **Render** (Free): [DEPLOY_NOW.md](./DEPLOY_NOW.md) - 4-step guide
+- 🚂 **Railway**: [RAILWAY_DEPLOYMENT.md](./RAILWAY_DEPLOYMENT.md) - GitHub repo deploy
+- 📚 **Detailed Render**: [RENDER_MANUAL_DEPLOY.md](./RENDER_MANUAL_DEPLOY.md) - Full guide
+
+### Other Options
+
+- **Docker**: Use `docker-compose.yml` on any VPS
+- **Local**: Development setup below
 
 ## 🌟 Key Features
 
 ### 📊 Graph Visualization
-- **Interactive Network Graphs**: Real-time visualization of user and transaction relationships
+- **Interactive Network Graphs**: Visualization of user and transaction relationships
 - **Color-Coded Relationships**: Different edge colors for various relationship types
 - **Node Details Panel**: Click on any node to view detailed information
 - **Shortest Path Analysis**: Find connection paths between any two users
@@ -30,7 +39,6 @@ A comprehensive graph-based fraud detection system built with Neo4j, Node.js, an
 - **Relationship Mapping**: Identify users sharing emails, phones, addresses, devices, or IP addresses
 - **Transaction Pattern Analysis**: Detect suspicious money transfer patterns
 - **Network Analysis**: Visualize complex fraud networks and money laundering schemes
-- **Real-time Monitoring**: Live detection of suspicious activities
 
 ### 🎨 Visual Elements
 | Relationship Type | Edge Color | Description |
@@ -102,12 +110,6 @@ A comprehensive graph-based fraud detection system built with Neo4j, Node.js, an
 1. **Transaction View**: Browse and filter transactions by type
 2. **User View**: Explore user profiles and relationships
 3. **Graph Visualization**: Click any item to see its relationship network
-
-#### Fraud Investigation Workflow
-1. **Start with Suspicious Transaction**: Select a high-value or unusual transaction
-2. **Analyze User Network**: View the user's relationship graph
-3. **Find Connection Paths**: Use shortest path to trace money flows
-4. **Identify Risk Patterns**: Look for shared devices, IPs, or personal information
 
 #### Advanced Features
 - **Shortest Path Finder**: Enter two user IDs to find connection paths
@@ -197,11 +199,6 @@ Relationship types include:
 - Identify fraud rings through relationship clustering
 - Detect mule accounts in money transfer chains  
 - Find common connection points in suspicious networks
-
-### 4. Real-time Monitoring
-- Monitor new relationships as they form
-- Alert on suspicious connection patterns
-- Track transaction flows through networks
 
 ## 📈 Performance & Scalability
 

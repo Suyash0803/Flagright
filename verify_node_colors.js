@@ -1,7 +1,19 @@
 console.log('🔍 Testing Fraud Detection System - Node Color Verification');
 
-// Test the relationships API
-fetch('http://localhost:5000/api/relationships/user/user-1')
+// First get a list of users to find a valid user ID
+fetch('http://localhost:5000/api/users?limit=1')
+  .then(response => response.json())
+  .then(userData => {
+    if (userData.users && userData.users.length > 0) {
+      const userId = userData.users[0].id;
+      console.log(`🎯 Testing with user ID: ${userId}`);
+      
+      // Test the relationships API
+      return fetch(`http://localhost:5000/api/relationships/user/${userId}`);
+    } else {
+      throw new Error('No users found in database');
+    }
+  })
   .then(response => response.json())
   .then(data => {
     console.log('\n📊 API Response Analysis:');
