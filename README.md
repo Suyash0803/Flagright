@@ -6,27 +6,6 @@ A comprehensive graph-based fraud detection system built with Neo4j, Node.js, an
 
 **Repository**: [https://github.com/Suyash0803/Flagright](https://github.com/Suyash0803/Flagright)
 
-## 🚀 Deployment
-
-### 🌟 Recommended Platforms
-
-| Platform | Best For | Cost | Setup Time |
-|----------|----------|------|------------|
-| **Render** | Free tier, testing | Free | 15 min |
-| **Railway** | Production, performance | $5-20/month | 20 min |
-| **DigitalOcean** | Full docker-compose support | $10-50/month | 30 min |
-
-### Platform-Specific Guides
-
-- 🐳 **Docker**: Use the included `docker-compose.yml` for local development
-- ☁️ **Cloud Platforms**: Deploy on Render, Railway, DigitalOcean, AWS, GCP, or Azure
-- � **Manual Setup**: Follow the development setup instructions below
-
-### Other Options
-
-- **Docker**: Use `docker-compose.yml` on any VPS
-- **Local**: Development setup below
-
 ## 🌟 Key Features
 
 ### 📊 Graph Visualization
@@ -182,30 +161,6 @@ Relationship types include:
 - `MADE_TRANSACTION`, `SENT_MONEY_TO`, `RECEIVED_MONEY_FROM`
 - `SHARES_EMAIL`, `SHARES_PHONE`, `SHARES_ADDRESS`
 - `SAME_IP`, `SAME_DEVICE`
-
-## 🚨 Fraud Detection Use Cases
-
-### 1. Identity Fraud Detection
-- Users sharing multiple personal identifiers
-- Same device/IP used by multiple accounts
-- Rapid account creation from same location
-
-### 2. Money Laundering Patterns  
-- Complex transaction chains between related users
-- Unusual transaction amounts or frequencies
-- Geographic inconsistencies in user profiles
-
-### 3. Network Analysis
-- Identify fraud rings through relationship clustering
-- Detect mule accounts in money transfer chains  
-- Find common connection points in suspicious networks
-
-## 📈 Performance & Scalability
-
-- **Neo4j Optimization**: Indexed queries for fast relationship traversal
-- **Pagination**: Efficient data loading for large datasets
-- **Caching**: In-memory caching for frequent queries
-- **Docker**: Scalable containerized architecture
 
 ## 🤝 Contributing
 
