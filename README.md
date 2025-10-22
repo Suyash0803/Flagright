@@ -18,9 +18,9 @@ A comprehensive graph-based fraud detection system built with Neo4j, Node.js, an
 
 ### Platform-Specific Guides
 
-- 🆓 **Render** (Free): [DEPLOY_NOW.md](./DEPLOY_NOW.md) - 4-step guide
-- 🚂 **Railway**: [RAILWAY_DEPLOYMENT.md](./RAILWAY_DEPLOYMENT.md) - GitHub repo deploy
-- 📚 **Detailed Render**: [RENDER_MANUAL_DEPLOY.md](./RENDER_MANUAL_DEPLOY.md) - Full guide
+- 🐳 **Docker**: Use the included `docker-compose.yml` for local development
+- ☁️ **Cloud Platforms**: Deploy on Render, Railway, DigitalOcean, AWS, GCP, or Azure
+- � **Manual Setup**: Follow the development setup instructions below
 
 ### Other Options
 
