@@ -85,6 +85,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
