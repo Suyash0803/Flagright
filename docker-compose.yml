@@ -10,19 +10,24 @@ services:
     environment:
       - NEO4J_AUTH=neo4j/password123
       - NEO4J_PLUGINS=["apoc"]
-      - NEO4J_dbms_memory_heap_max__size=2G
-      - NEO4J_dbms_memory_pagecache_size=512M
-      - NEO4J_dbms_memory_transaction_total_max=2G
+      - NEO4J_dbms_memory_heap_max__size=512M
+      - NEO4J_dbms_memory_pagecache_size=256M
+      - NEO4J_dbms_memory_transaction_total_max=512M
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+      - NEO4J_dbms_usage__report_enabled=false
+      - NEO4J_dbms_logs_debug_level=WARN
     volumes:
       - neo4j_data:/data
       - neo4j_logs:/logs
     networks:
       - flagright-network
+    restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
-      interval: 10s
-      timeout: 5s
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p password123 'RETURN 1;' || exit 1"]
+      interval: 30s
+      timeout: 10s
       retries: 5
+      start_period: 40s
 
   backend:
     build:
